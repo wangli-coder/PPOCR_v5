@@ -17,7 +17,7 @@
     "input_configs": [
       {
         "tensor_name": "x",
-        "calibration_dataset": "./dataset/rec.tar",
+        "calibration_dataset": "../dataset/rec.tar",
         "calibration_format": "Image",
         "calibration_size": -1,
         "calibration_mean": [127.5, 127.5, 127.5],
