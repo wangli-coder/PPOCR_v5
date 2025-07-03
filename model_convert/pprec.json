@@ -1,0 +1,57 @@
+{
+  "input": "./rec_mobile_slim_static.onnx",
+  "output_dir": "./rec",
+  "output_name": "ppocrv5_rec.axmodel",
+  "model_type": "ONNX",
+  "target_hardware": "AX650",
+  "npu_mode": "NPU1",
+
+  "onnx_opt": {
+    "disable_onnx_optimization": false,
+    "enable_onnxsim": true,
+    "model_check": true,
+    "disable_transformation_check": false
+  },
+
+  "quant": {
+    "input_configs": [
+      {
+        "tensor_name": "x",
+        "calibration_dataset": "./dataset/rec.tar",
+        "calibration_format": "Image",
+        "calibration_size": -1,
+        "calibration_mean": [127.5, 127.5, 127.5],
+        "calibration_std": [127.5, 127.5, 127.5]
+      }
+    ],
+
+    "calibration_method": "MinMax",
+    "precision_analysis": true,
+    "precision_analysis_method": "EndToEnd",
+    "precision_analysis_mode": "Reference", 
+
+    "layer_configs": [
+
+      {
+        "start_tensor_names": ["DEFAULT"],
+        "end_tensor_names": ["DEFAULT"],
+        "data_type": "U16"  
+      }
+    ]
+  },
+
+  "input_processors": [
+    {
+      "tensor_name": "x",
+      "tensor_format": "BGR",
+      "tensor_layout": "NCHW",
+      "src_format": "RGB",
+      "src_dtype": "FP32",
+      "src_layout": "NHWC",
+      "csc_mode": "NoCSC"
+    }
+  ],
+  "compiler": {
+    "check": 0
+  }
+}
