@@ -2,7 +2,7 @@
 PPOCRv5 DEMO on Axera
 
 - 目前支持  Python 语言 
-- 预编译模型下载[models](https://github.com/wangli-coder/PPOCR_v5/releases/download/V1.0.0/models.zip)。如需自行转换请参考[模型转换](./model_convert/README.md)
+- 预编译模型下载[models](https://github.com/wangli-coder/PPOCR_v5/releases/download/V1.0.0/models.zip), 如需自行转换请参考[模型转换](./model_convert/README.md)
 - PPOCRv5相关资料：[PP-OCRv5](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/algorithm/PP-OCRv5/PP-OCRv5.md)
 
 ## 支持平台
