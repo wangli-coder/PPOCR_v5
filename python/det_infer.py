@@ -15,7 +15,7 @@ class DetInference(object):
         self.det_onnx_session = session
         self.det_input_name = session.get_inputs()[0].name
         self.det_output_name = [output.name for output in session.get_outputs()]
-        self.det_model_shape = args.det_input_shape
+        self.det_model_shape = list(map(int, args.det_input_shape.split(',')))
     
     def __call__(self, ori_img):
 
@@ -24,7 +24,7 @@ class DetInference(object):
         #det normalize & inference
         if self.args.engine == "onnx":
             img = self.normalize(img, scale=1/255., mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        img = np.expand_dims(img, axis=0).transpose((0, 3, 1, 2))
+        img = np.expand_dims(img, axis=0).transpose((0, 3, 1, 2)).astype(np.float32)
         outputs = self.det_onnx_session.run(self.det_output_name, input_feed={self.det_input_name:img})[0]
         
         boxes, scores = self.get_det_box(outputs)

@@ -15,7 +15,7 @@ class ClsInference(object):
 
         self.label_list = ["0", "180"]
         self.cls_batch_num = 1
-        self.cls_model_shape = args.cls_input_shape
+        self.cls_model_shape = list(map(int, args.cls_input_shape.split(',')))
 
     def __call__(self, det_boxes, img):
 

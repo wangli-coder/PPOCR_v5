@@ -13,7 +13,7 @@ class RecInference(object):
         self.rec_output_name = [output.name for output in session.get_outputs()]
 
         self.rec_batch_num = 1
-        self.rec_model_shape = args.rec_input_shape
+        self.rec_model_shape = list(map(int, args.rec_input_shape.split(',')))
 
     def __call__(self, img_list):
         img_num = len(img_list)

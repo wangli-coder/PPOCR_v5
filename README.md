@@ -37,33 +37,36 @@ pip3 install -r requirements.txt
 在开发板或PC上，运行以下命令  
 ```  
 cd python
-python3 infer_onnx.py
+python3 main.py --det_model [your onnx detmodel path] --cls_model [your onnx clsmodel path] --rec_model [your onnx recmodel path] --engine onnx
 ```
 输出结果
-![output](asserts/res_onnx.jpg)
-
+![output](asserts/test_pic0_onnx_result.jpg)
+![output](asserts/test_pic1_onnx_result.jpg)
+![output](asserts/test_pic2_onnx_result.jpg)
 ##### 基于AXEngine运行  
 在开发板上运行命令
 
 ```
 cd python  
-python3 infer_axmodel.py
+python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmodel path] --rec_model [your ax recmodel path] --engine ax
 ```  
 输出结果
-![output](asserts/res_ax.jpg)
-
+![output](asserts/test_pic0_ax_result.jpg)
+![output](asserts/test_pic1_ax_result.jpg)
+![output](asserts/test_pic2_ax_result.jpg)
 
 运行参数说明:  
 | 参数名称 | 说明  |
 | --- | --- | 
-| --img_path | 输入图片路径 | 
-| --det_model_dir | 检测模型路径 | 
-| --rec_model_dir | 识别模型路径 | 
-| --cls_model_dir | 分类模型路径 | 
-| --character_dict_path | 识别字典路径 | 
-| --det_limit_side_len | 检测模型尺寸 | 
-| --rec_image_shape | 识别模型尺寸 | 
-| --cls_image_shape | 分类模型尺寸 | 
+| --det_model | 检测模型路径 | 
+| --cls_model | 方向分类模型路径 | 
+| --rec_model | 识别模型路径 | 
+| --det_input_shape | 检测模型输入尺寸 | 
+| --cls_input_shape | 方向分类模型输入尺寸 | 
+| --rec_input_shape | 识别模型输入尺寸 | 
+| --source | 输入图片路径 |
+| --engine | 推理引擎 |
+| --character_dict_path | 识别字典路径 |
 
 ### Latency
 
@@ -71,11 +74,9 @@ python3 infer_axmodel.py
 
 | model | latency(ms) |
 |---|---|
-|PP-OCRv5_mobile_det|28.6|
-|PP-OCRv5_mobile_rec|3.6|
-|PP-LCNet_x0_25_textline_ori|0.3|
-
-
+|PP-OCRv5_mobile_det|28.616|
+|PP-LCNet_x0_25_textline_ori|0.294|
+|PP-OCRv5_mobile_rec|3.623|
 
 ## 技术讨论
 
