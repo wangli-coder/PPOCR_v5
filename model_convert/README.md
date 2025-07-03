@@ -39,19 +39,15 @@ onnxsim cls_mobile.onnx  cls_x0_25_slim_static.onnx --overwrite-input-shape=1,3,
 使用模型转换工具 `Pulsar2` 将 ONNX 模型转换成适用于 Axera 的 NPU 运行的模型文件格式 `.axmodel`，通常情况下需要经过以下两个步骤：
 
 - 生成适用于该模型的 PTQ 量化校准数据集
-- 使用 `Pulsar2 build` 命令集进行模型转换（PTQ 量化、编译），更详细的使用说明请参考 [AXera Pulsar2 工具链指导手册](https://pulsar2-docs.readthedocs.io/zh-cn/latest/index.html)
-
-### 下载量化数据集
-```
-bash download_dataset.sh
-```
-这个模型的输入是单张图片，比较简单，这里我们直接下载打包好的图片数据  
+- 使用 `Pulsar2 build` 命令集进行模型转换（PTQ 量化、编译），更详细的使用说明请参考 [AXera Pulsar2 工具链指导手册](https://pulsar2-docs.readthedocs.io/zh-cn/latest/index.html) 
 
 ### 模型转换
 
 #### 修改配置文件
- 
-检查`config.json` 中 `calibration_dataset` 字段，将该字段配置的路径改为上一步下载的量化数据集存放路径  
+
+- 下载相关量化数据集[dataset](https://github.com/wangli-coder/PPOCR_v5/releases/download/V1.0.0/dataset.zip)并解压
+
+- 配置`config.json` 中 `calibration_dataset` 字段数为对用量化据集路径
 
 #### Pulsar2 build
 
