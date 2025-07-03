@@ -2,7 +2,8 @@
 PPOCRv5 DEMO on Axera
 
 - 目前支持  Python 语言 
-- 预编译模型下载[models](https://github.com/wzf19947/PPOCR_v5/releases/download/v1.0.0/model.tar.gz)。如需自行转换请参考[模型转换](/model_convert/README.md)
+- 预编译模型下载[models](https://github.com/wangli-coder/PPOCR_v5/releases/download/V1.0.0/models.zip)。如需自行转换请参考[模型转换](./model_convert/README.md)
+- PPOCRv5相关资料：[PP-OCRv5](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/algorithm/PP-OCRv5/PP-OCRv5.md)
 
 ## 支持平台
 
@@ -37,10 +38,9 @@ pip3 install -r requirements.txt
 在开发板或PC上，运行以下命令  
 ```  
 cd python
-python3 main.py --det_model [your onnx detmodel path] --cls_model [your onnx clsmodel path] --rec_model [your onnx recmodel path] --engine onnx
+python3 main.py --det_model [your onnx detmodel path] --cls_model [your onnx clsmodel path] --rec_model [your onnx recmodel path] --engine onnx --source [your image path]
 ```
-输出结果
-![output](asserts/test_pic0_onnx_result.jpg)
+输出示例
 ![output](asserts/test_pic1_onnx_result.jpg)
 ![output](asserts/test_pic2_onnx_result.jpg)
 ##### 基于AXEngine运行  
@@ -48,10 +48,9 @@ python3 main.py --det_model [your onnx detmodel path] --cls_model [your onnx cls
 
 ```
 cd python  
-python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmodel path] --rec_model [your ax recmodel path] --engine ax
+python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmodel path] --rec_model [your ax recmodel path] --engine ax --source [your image path]
 ```  
-输出结果
-![output](asserts/test_pic0_ax_result.jpg)
+输出示例
 ![output](asserts/test_pic1_ax_result.jpg)
 ![output](asserts/test_pic2_ax_result.jpg)
 
@@ -82,3 +81,7 @@ python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmode
 
 - Github issues
 - QQ 群: 139953715
+
+## 参考
+- https://github.com/jingsongliujing/OnnxOCR
+- https://github.com/PaddlePaddle/PaddleOCR

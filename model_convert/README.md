@@ -6,9 +6,7 @@
 conda create -n PPOCR python=3.12 -y
 conda activate PPOCR
 ```
-建议创建python虚拟环境，需要的安装包如下：
-- [paddlepaddle](https://github.com/PaddlePaddle/Paddle)
-- [paddleocr](https://github.com/PaddlePaddle/PaddleOCR/tree/main)
+建议创建python虚拟环境， 需要使用到的库如下：
 - [paddle2onnx](https://github.com/PaddlePaddle/Paddle2ONNX)
 - onnx-simplifier
 - onnx
