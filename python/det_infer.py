@@ -24,7 +24,7 @@ class DetInference(object):
         #det normalize & inference
         if self.args.engine == "onnx":
             img = self.normalize(img, scale=1/255., mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        img = np.expand_dims(img, axis=0).transpose((0, 3, 1, 2)).astype(np.float32)
+        img = np.expand_dims(img, axis=0).transpose((0, 3, 1, 2))
         outputs = self.det_onnx_session.run(self.det_output_name, input_feed={self.det_input_name:img})[0]
         
         boxes, scores = self.get_det_box(outputs)

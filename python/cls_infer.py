@@ -55,7 +55,7 @@ class ClsInference(object):
             for rno in range(len(cls_result)):
                 label, score = cls_result[rno]
                 cls_res[indices[beg_img_no + rno]] = [label, score]
-                if "180" in label and score > self.cls_thresh:
+                if "180" in label and score > 0.9:
                     img_list[indices[beg_img_no + rno]] = cv2.rotate(
                         img_list[indices[beg_img_no + rno]], 1
                     )

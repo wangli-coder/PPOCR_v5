@@ -46,7 +46,7 @@
       "tensor_layout": "NCHW",
       "src_format": "RGB",
       "src_dtype": "FP32",
-      "src_layout": "NHWC",
+      "src_layout": "NCHW",
       "csc_mode": "NoCSC"
     }
   ],
