@@ -8,7 +8,7 @@ PPOCRv5 DEMO on Axera
 ## 支持平台
 
 - [x] AX650N
-- [ ] AX630C
+- [x] AX630C
 
 ## 模型转换
 
@@ -76,6 +76,14 @@ python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmode
 |PP-OCRv5_mobile_det|28.616|
 |PP-LCNet_x0_25_textline_ori|0.294|
 |PP-OCRv5_mobile_rec|3.623|
+
+#### AX630C
+
+| model | latency(ms) |
+|---|---|
+|PP-OCRv5_mobile_det|122.278|
+|PP-LCNet_x0_25_textline_ori|0.872|
+|PP-OCRv5_mobile_rec|20.429|
 
 ## 技术讨论
 

@@ -51,13 +51,13 @@ onnxsim cls_mobile.onnx  cls_x0_25_slim_static.onnx --overwrite-input-shape=1,3,
 
 #### Pulsar2 build
 
-参考命令如下：
+参考命令如下(以650n为例)：
 
 ```
 pulsar2 build --input det_mobile_sim_static.onnx --config ./ppdet.json --output_dir ./det --output_name ppocrv5_det.axmodel  --target_hardware AX650 --compiler.check 0
 
 也可将参数写进json中，直接执行：
-pulsar2 build --config ./ppdet.json
-pulsar2 build --config ./pprec.json
-pulsar2 build --config ./ppcls.json
+pulsar2 build --config ./ppdet_650n.json
+pulsar2 build --config ./pprec_650n.json
+pulsar2 build --config ./ppcls_650n.json
 ```

@@ -1,0 +1,56 @@
+{
+  "input": "./cls_x0_25_slim_static.onnx",
+  "output_dir": "./cls",
+  "output_name": "ppocrv5_cls.axmodel",
+  "model_type": "ONNX",
+  "target_hardware": "AX620E",
+  "npu_mode": "NPU1",
+
+  "onnx_opt": {
+    "disable_onnx_optimization": false,
+    "enable_onnxsim": true,
+    "model_check": true,
+    "disable_transformation_check": false
+  },
+
+  "quant": {
+    "input_configs": [
+      {
+        "tensor_name": "x",
+        "calibration_dataset": "./dataset/rec.tar",
+        "calibration_format": "Image",
+        "calibration_size": -1,
+        "calibration_mean": [127.5, 127.5, 127.5],
+        "calibration_std": [127.5, 127.5, 127.5]
+      }
+    ],
+
+    "calibration_method": "MinMax",
+    "precision_analysis": true,
+    "precision_analysis_method": "EndToEnd",
+    "precision_analysis_mode": "Reference", 
+
+    "layer_configs": [
+      {
+        "start_tensor_names": ["DEFAULT"],
+        "end_tensor_names": ["DEFAULT"],
+        "data_type": "U16"  
+      }
+    ]
+  },
+
+  "input_processors": [
+    {
+      "tensor_name": "x",
+      "tensor_format": "BGR",
+      "tensor_layout": "NCHW",
+      "src_format": "RGB",
+      "src_dtype": "U8",
+      "src_layout": "NCHW",
+      "csc_mode": "NoCSC"
+    }
+  ],
+  "compiler": {
+    "check": 0
+  }
+}
