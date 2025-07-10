@@ -80,16 +80,16 @@ python3 main.py --det_model [your ax detmodel path] --cls_model [your ax clsmode
 | model | latency(ms) |
 |---|---|
 |PP-OCRv5_mobile_det|28.616|
-|PP-LCNet_x0_25_textline_ori|0.294|
+|PP-LCNet_x0_25_textline_ori|0.210|
 |PP-OCRv5_mobile_rec|3.623|
 
 #### AX630C
 
 | model | latency(ms) |
 |---|---|
-|PP-OCRv5_mobile_det|122.278|
-|PP-LCNet_x0_25_textline_ori|0.872|
-|PP-OCRv5_mobile_rec|20.429|
+|PP-OCRv5_mobile_det|123.094|
+|PP-LCNet_x0_25_textline_ori|0.394|
+|PP-OCRv5_mobile_rec|20.182|
 
 ## 技术讨论
 
