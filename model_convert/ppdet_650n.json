@@ -1,6 +1,6 @@
 {
-  "input": "./det_mobile_slim_static.onnx",
-  "output_dir": "./det",
+  "input": "../models/onnx/det_mobile_sim_static.onnx",
+  "output_dir": "../models/axmodel/650N",
   "output_name": "ppocrv5_det.axmodel",
   "model_type": "ONNX",
   "target_hardware": "AX650",
@@ -17,7 +17,7 @@
     "input_configs": [
       {
         "tensor_name": "x",
-        "calibration_dataset": "../dataset/det.tar",
+        "calibration_dataset": "./dataset/det.tar",
         "calibration_format": "Image",
         "calibration_size": -1,
         "calibration_mean": [123.675, 116.28, 103.53],
@@ -29,13 +29,14 @@
     "precision_analysis": true,
     "precision_analysis_method": "EndToEnd",
     "precision_analysis_mode": "Reference", 
+    "enable_smooth_quant": true,
 
     "layer_configs": [
       {
-      "start_tensor_names": ["DEFAULT"],
-      "end_tensor_names": ["DEFAULT"],
-      "data_type": "U16" 
-      }
+        "start_tensor_names": ["DEFAULT"],
+        "end_tensor_names": ["DEFAULT"],
+        "data_type": "U16" 
+        }
     ]
   },
 

@@ -25,10 +25,13 @@ class DetInference(object):
         if self.args.engine == "onnx":
             img = self.normalize(img, scale=1/255., mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         img = np.expand_dims(img, axis=0).transpose((0, 3, 1, 2)).astype(np.float32)
+
         outputs = self.det_onnx_session.run(self.det_output_name, input_feed={self.det_input_name:img})[0]
         
         boxes, scores = self.get_det_box(outputs)
         boxes = self.filter_tag_det_res(boxes, image_shape=self.det_model_shape[1:]) #w,h
+        if boxes.shape[0] == 0:
+            return None
         boxes = self.reversed_box(boxes, ratio, *(top_pad, left_pad), ori_img.shape)
         boxes = self.sorted_boxes(boxes)
 

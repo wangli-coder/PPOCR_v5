@@ -1,6 +1,6 @@
 {
-  "input": "./det_mobile_slim_static.onnx",
-  "output_dir": "./det",
+  "input": "../models/onnx/det_mobile_sim_static.onnx",
+  "output_dir": "../models/axmodel/630C",
   "output_name": "ppocrv5_det.axmodel",
   "model_type": "ONNX",
   "target_hardware": "AX620E",
@@ -52,7 +52,7 @@
       "tensor_format": "BGR",
       "tensor_layout": "NCHW",
       "src_format": "RGB",
-      "src_dtype": "U8",
+      "src_dtype": "FP32",
       "src_layout": "NCHW",
       "csc_mode": "NoCSC"
     }

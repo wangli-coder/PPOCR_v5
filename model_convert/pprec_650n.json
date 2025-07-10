@@ -1,6 +1,6 @@
 {
-  "input": "./rec_mobile_slim_static.onnx",
-  "output_dir": "./rec",
+  "input": "../models/onnx/rec_mobile_sim_static.onnx",
+  "output_dir": "../models/axmodel/650N",
   "output_name": "ppocrv5_rec.axmodel",
   "model_type": "ONNX",
   "target_hardware": "AX650",
@@ -17,7 +17,7 @@
     "input_configs": [
       {
         "tensor_name": "x",
-        "calibration_dataset": "../dataset/rec.tar",
+        "calibration_dataset": "./dataset/rec.tar",
         "calibration_format": "Image",
         "calibration_size": -1,
         "calibration_mean": [127.5, 127.5, 127.5],
@@ -31,11 +31,10 @@
     "precision_analysis_mode": "Reference", 
 
     "layer_configs": [
-
       {
         "start_tensor_names": ["DEFAULT"],
         "end_tensor_names": ["DEFAULT"],
-        "data_type": "U16"  
+        "data_type": "U16" 
       }
     ]
   },

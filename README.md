@@ -5,6 +5,12 @@ PPOCRv5 DEMO on Axera
 - 预编译模型下载[models](https://github.com/wangli-coder/PPOCR_v5/releases/download/V1.0.0/models.zip), 如需自行转换请参考[模型转换](./model_convert/README.md)
 - PPOCRv5相关资料：[PP-OCRv5](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/algorithm/PP-OCRv5/PP-OCRv5.md)
 
+## 更新
+
+- [2025-07-10] 推理代码更新，量化config和模型更新
+- [2025-07-09] 630C平台量化相关config和模型更新
+- [2025-07-03] Onnx和650N推理平台代码、量化相关config和模型上传
+
 ## 支持平台
 
 - [x] AX650N
@@ -14,7 +20,7 @@ PPOCRv5 DEMO on Axera
 
 [模型转换](./model_convert/README.md)
 
-## 上板部署
+## 上板部署（650N）
 
 - AX650N 的设备已预装 Ubuntu22.04
 - 以 root 权限登陆 AX650N 的板卡设备

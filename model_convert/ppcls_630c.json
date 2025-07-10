@@ -1,6 +1,6 @@
 {
-  "input": "./cls_x0_25_slim_static.onnx",
-  "output_dir": "./cls",
+  "input": "../models/onnx/cls_x0_25_sim_static.onnx",
+  "output_dir": "../models/axmodel/630C",
   "output_name": "ppocrv5_cls.axmodel",
   "model_type": "ONNX",
   "target_hardware": "AX620E",
@@ -29,12 +29,17 @@
     "precision_analysis": true,
     "precision_analysis_method": "EndToEnd",
     "precision_analysis_mode": "Reference", 
-
+    "conv_bias_data_type": "FP32",
+    "disable_auto_refine_scale": true,
     "layer_configs": [
       {
         "start_tensor_names": ["DEFAULT"],
         "end_tensor_names": ["DEFAULT"],
-        "data_type": "U16"  
+        "data_type": "U8"  
+      },
+      {
+        "layer_names": ["HardSwish.3", "HardSwish.4", "HardSwish.5", "HardSwish.6"],
+        "data_type": "U16"
       }
     ]
   },
@@ -45,7 +50,7 @@
       "tensor_format": "BGR",
       "tensor_layout": "NCHW",
       "src_format": "RGB",
-      "src_dtype": "U8",
+      "src_dtype": "FP32",
       "src_layout": "NCHW",
       "csc_mode": "NoCSC"
     }

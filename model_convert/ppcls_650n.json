@@ -1,6 +1,6 @@
 {
-  "input": "./cls_x0_25_slim_static.onnx",
-  "output_dir": "./cls",
+  "input": "../models/onnx/cls_x0_25_sim_static.onnx",
+  "output_dir": "../models/axmodel/650N",
   "output_name": "ppocrv5_cls.axmodel",
   "model_type": "ONNX",
   "target_hardware": "AX650",
@@ -17,7 +17,7 @@
     "input_configs": [
       {
         "tensor_name": "x",
-        "calibration_dataset": "../dataset/rec.tar",
+        "calibration_dataset": "./dataset/rec.tar",
         "calibration_format": "Image",
         "calibration_size": -1,
         "calibration_mean": [127.5, 127.5, 127.5],
@@ -34,7 +34,11 @@
       {
         "start_tensor_names": ["DEFAULT"],
         "end_tensor_names": ["DEFAULT"],
-        "data_type": "U16"  
+        "data_type": "U8"  
+      },
+      {
+        "layer_names": ["HardSwish.3", "HardSwish.4", "HardSwish.5", "HardSwish.6"],
+        "data_type": "U16"
       }
     ]
   },

@@ -36,6 +36,9 @@ def main(opt):
         #get text det boxes
         text_det = DetInference(opt, session=det_session)
         det_boxes = text_det(ori_img)
+        if det_boxes is None:
+            print(f"No text detected in {img}")
+            continue
 
         #get text img direction and refine text img
         text_cls = ClsInference(opt, session=cls_session)
@@ -60,9 +63,14 @@ def main(opt):
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("--det_model", type=str, default="../models/onnx/det_mobile_sim_static.onnx", help="Det model path, onnx model or axmodel.")
-    parser.add_argument("--cls_model", type=str, default="../models/onnx/cls_x0_25_sim_static.onnx", help="Cls model path, onnx model or axmodel.")
-    parser.add_argument("--rec_model", type=str, default="../models/onnx/rec_mobile_sim_static.onnx", help="Rec model path, onnx model or axmodel.")
+    # parser.add_argument("--det_model", type=str, default="../models/onnx/det_mobile_sim_static.onnx", help="Det model path, onnx model or axmodel.")
+    # parser.add_argument("--cls_model", type=str, default="../models/onnx/cls_x0_25_sim_static.onnx", help="Cls model path, onnx model or axmodel.")
+    # parser.add_argument("--rec_model", type=str, default="../models/onnx/rec_mobile_sim_static.onnx", help="Rec model path, onnx model or axmodel.")
+    
+    parser.add_argument("--det_model", type=str, default="../models/axmodel/630C/ppocrv5_det.axmodel", help="Det model path, onnx model or axmodel.")
+    parser.add_argument("--cls_model", type=str, default="../models/axmodel/630C/ppocrv5_cls.axmodel", help="Cls model path, onnx model or axmodel.")
+    parser.add_argument("--rec_model", type=str, default="../models/axmodel/630C/ppocrv5_rec.axmodel", help="Rec model path, onnx model or axmodel.")
+    
     parser.add_argument("--det_input_shape", type=str, default="3,960,960", help="Det model input shape.")
     parser.add_argument("--cls_input_shape", type=str, default="3,80,160", help="Cls model input shape.")
     parser.add_argument("--rec_input_shape", type=str, default="3,48,320", help="Rec model input shape.")
